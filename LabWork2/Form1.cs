@@ -17,26 +17,7 @@ namespace LabWork2
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -46,7 +27,7 @@ namespace LabWork2
             textBox5.Text = "1,2131";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             // Считывание значения X
             double x = Double.Parse(textBox1.Text);
@@ -57,25 +38,19 @@ namespace LabWork2
             // Вывод значения Y в окно
             textBox4.Text += Environment.NewLine + "Y = " + y.ToString();
             // Считывание значения Z
-            double z = double.Parse(textBox3.Text);
+            double z = Double.Parse(textBox3.Text);
             // Вывод значения Z в окно
             textBox4.Text += Environment.NewLine + "Z = " + z.ToString();
-            // Считывание значения Z
+            // Считывание значения ψ
             double d = double.Parse(textBox5.Text);
-            // Вывод значения Z в окно
+            // Вывод значения ψ в окно
             textBox4.Text += Environment.NewLine + "ψ = " + d.ToString();
             // Вычисляем арифметическое выражение
-            double a = Math.Abs(Math.Pow(x, y / x) - Math.Pow(y / x, 1.0 / 3.0));
-            double b = a + (y - x); 
-            double c = b * (Math.Cos(y - (z / (y - x)))) / 1 + Math.Pow(y - x, 2);
-            //double u = u = c;
+            double a = Math.Abs(Math.Pow(x, y/ x) - Math.Pow(y / x, 1.0 / 3.0));
+            double b = (y - x) * (Math.Cos(y * (Math.PI / 180)) - (z / (y - x))) / (1 + Math.Pow(y - x, 2));
+            double c = a+b;
             // Выводим результат в окно
-            textBox4.Text += Environment.NewLine + "Результат U = " + c.ToString();
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
+            textBox4.Text += Environment.NewLine + "Результат ψ = " + c.ToString();
         }
     }
 }
